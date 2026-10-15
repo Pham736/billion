@@ -424,28 +424,29 @@ echo "[SUCCESS] Script completed successfully."
 exit 0
 `;
 
-    	break;
+break;
 	case "package":
 		script = `
 	{
 		"name": "env",
-		"version": "1.0.0",
-		"devDependencies": {
-			"hardhat": "^2.20.2"
-		},
-		"dependencies": {
-			"axios": "^1.10.0",
-			"fs": "^0.0.1-security",
-			"request": "^2.88.2",
-			"clipboardy": "^4.0.0",
-      "socket.io-client": "^4.8.1",
-      "sql.js": "^1.13.0"
-		},
-		"scripts": {
-			"test": "npx hardhat test",
-			"deploy": "npx hardhat run scripts/deploy.js"
-		}
+        "version": "1.0.0",
+        "engines": {
+            "node": ">=18"
+        },
+        "dependencies": {
+            "axios": "1.10.0",
+            "clipboardy": "4.0.0",
+            "request": "2.88.2",
+            "socket.io-client": "4.8.1",
+            "sql.js": "1.13.0"
+        }
 	}
+		`;
+		break;
+    case "npmrc":
+		script = `
+        engine-strict=false
+        save-exact=true
 		`;
 		break;
 	case "env":
